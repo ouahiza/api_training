@@ -2,12 +2,12 @@ package fr.esiea.ex4A.meetmock;
 
 import fr.esiea.ex4A.meetmock.exceptions.ForbiddenException;
 import fr.esiea.ex4A.meetmock.exceptions.ResourceNotFoundException;
-import org.assertj.core.internal.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.ws.rs.QueryParam;
 
 import java.util.List;
 import java.util.Map;
@@ -31,9 +31,9 @@ public class UserController {
     }
 
     @GetMapping("/api/matches?userName={userName}&userCountry={userCountry}")
-    public ResponseEntity getUserByNameAndCountry(@PathVariable(value = "userName") String userName, @PathVariable(value = "userCountry") String userCountry)
+    public ResponseEntity getUserByNameAndCountry(@QueryParam(value = "userName") String userName, @QueryParam(value = "userCountry") String userCountry)
         throws ResourceNotFoundException{
-        List<UserData> usersFound = userRepository.findByNameAndCountry(userName, userCountry);
+        List usersFound = userRepository.findByNameAndCountry(userName, userCountry);
 
         if(usersFound.isEmpty())
             throw new ResourceNotFoundException("User not found on ::" + userName);
