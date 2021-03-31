@@ -2,12 +2,12 @@ package fr.esiea.ex4A.meetmock;
 
 public class UserData {
     //Attibuts
-    private String userName;
-    private String userEmail;
-    private String userTwitter;
-    private String userCountry;
-    private String userSex;
-    private String userSexPref;
+    private final String userName;
+    private final String userEmail;
+    private final String userTwitter;
+    private final String userCountry;
+    private final String userSex;
+    private final String userSexPref;
 
     public UserData(String userName, String userEmail, String userTwitter, String userCountry, String userSex, String userSexPref) {
         this.userName = userName;
