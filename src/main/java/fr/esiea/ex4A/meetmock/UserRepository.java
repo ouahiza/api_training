@@ -8,7 +8,7 @@ import java.util.*;
 
 @Repository
 public class UserRepository {
-    private ArrayList<UserData> users ;
+    private final ArrayList<UserData> users ;
 
     public UserRepository() {
         users = new ArrayList<UserData>();

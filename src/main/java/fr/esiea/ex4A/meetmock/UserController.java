@@ -15,7 +15,12 @@ import java.util.Map;
 @RestController
 public class UserController {
     @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
 
     @PostMapping("/api/inscription")
     public ResponseEntity<?> createUser(@Valid @RequestBody Map<String, Object> request) throws ForbiddenException {
